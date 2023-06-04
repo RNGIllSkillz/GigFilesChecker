@@ -35,9 +35,9 @@ class Program
         DirectoryComparer.CopyMissingFiles(sourceDirectory, destinationDirectory); 
         Console.WriteLine();
 
-        Console.WriteLine("Checking files integrity");
-        HashChecker.CheckAndCopyFiles(sourceDirectory, destinationDirectory);
-        Console.WriteLine();
+        //Console.WriteLine("Checking files integrity");
+        //HashChecker.CheckAndCopyFiles(sourceDirectory, destinationDirectory);
+        //Console.WriteLine();
     }
     private static Tuple<string, string>? ReadDirectoriesFromFile(string filePath)
     {
