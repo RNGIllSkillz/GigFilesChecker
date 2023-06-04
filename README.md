@@ -1,14 +1,38 @@
 # GigFilesChecker
 
-Docker should run with the following environment variables:
+GigFilesChecker is a program designed to be dockerized and used to set up and run a game server for Gigantic.
 
-- `HTTP_PORT`
-- `SERVER_URL`
-- `SERVER_PORT`
-- `MAX_INSTANCES`
-- `TITLE`
-- `API_KEY`
+## Prerequisites
+- Docker installed on the host machine.
 
-Host folder with the game should be mounted at `/GiganticHost`.
+## Getting Started
+1. Download the latest release of GigFilesChecker.
+2. Extract the downloaded `GigFilesChecker.zip` file.
+3. Copy the contents of the extracted folder to the desired location on your host machine.
+4. Build the Docker image:
+docker build -t gig-server
+5. Run the Docker container:
+docker run -d
+-e HTTP_PORT=<HTTP_PORT>
+-e SERVER_URL=<SERVER_URL>
+-e SERVER_PORT=<SERVER_PORT>
+-e MAX_INSTANCES=<MAX_INSTANCES>
+-e TITLE=<TITLE>
+-e API_KEY=<API_KEY>
+-v /GiganticHost:/volume/gigantic
+--name gig-server gig-server
+  
+Replace the `<HTTP_PORT>`, `<SERVER_URL>`, `<SERVER_PORT>`, `<MAX_INSTANCES>`, `<TITLE>`, and `<API_KEY>` placeholders with the appropriate values.
 
-Docker Volume should be mounted at `/volume/gigantic`.
+This command will:
+- Start the Docker container in detached mode (`-d` flag).
+- Set the required environment variables.
+- Mount the host folder with the game at `/GiganticHost` to the Docker volume `/volume/gigantic`.
+- Assign the name `gig-files-checker` to the Docker container.
+
+6. Access the game server:
+The game server will be accessible at the specified `SERVER_URL` and `SERVER_PORT` in the environment variables.
+## License
+This project is licensed under the [MIT License](LICENSE).
+  
+Please note that you should update the instructions further based on the specific requirements and structure of your project, including any additional configuration or setup steps necessary for running the GigFilesChecker program.
