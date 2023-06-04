@@ -4,6 +4,7 @@ GigFilesChecker is a program designed to be dockerized and used to set up and ru
 
 ## Prerequisites
 - Docker installed on the host machine.
+- Gigantic-Core_de build #298288
 
 ## Getting Started
 1. Download the latest release of GigFilesChecker.
