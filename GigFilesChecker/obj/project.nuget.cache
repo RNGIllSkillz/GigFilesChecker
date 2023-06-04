@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "SHXUL/BJ5j2l944PYouS6DlHsZmJvD+N15nMopUzf1TL2a7pr8UynVi/LqUUm3pu6HEDdBkFJysfrDKXsf6/yQ==",
+  "success": true,
+  "projectFilePath": "Z:\\prj\\GitHub\\GigFilesChecker\\GigFilesChecker\\GigFilesChecker.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\atras\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\3.1.32\\microsoft.netcore.app.runtime.linux-x64.3.1.32.nupkg.sha512",
+    "C:\\Users\\atras\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\3.1.32\\microsoft.netcore.app.host.linux-x64.3.1.32.nupkg.sha512",
+    "C:\\Users\\atras\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\3.1.32\\microsoft.aspnetcore.app.runtime.linux-x64.3.1.32.nupkg.sha512"
+  ],
+  "logs": []
+}

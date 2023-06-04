@@ -29,6 +29,7 @@ class Program
 
         //string sourceDirectory = @"D:\test";
         //string destinationDirectory = @"D:\testIn";
+        CheckAndCreateDirectory(destinationDirectory);
 
         Console.WriteLine("Checking for files presence");
         DirectoryComparer.CopyMissingFiles(sourceDirectory, destinationDirectory); 
@@ -49,5 +50,13 @@ class Program
             }
         }
         return null;
+    }
+    private static void CheckAndCreateDirectory(string directoryPath)
+    {
+        if (!Directory.Exists(directoryPath))
+        {
+            Directory.CreateDirectory(directoryPath);
+            Console.WriteLine("Directory created: " + directoryPath);
+        }
     }
 }
