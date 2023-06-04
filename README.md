@@ -19,7 +19,8 @@ docker run -d
 -e MAX_INSTANCES=<MAX_INSTANCES>
 -e TITLE=<TITLE>
 -e API_KEY=<API_KEY>
--v /GiganticHost:/volume/gigantic
+-v /path/to/game/on/host/machine:/GiganticHost
+-v /volume/gigantic:/volume/gigantic
 --name gig-server gig-server
   
 Replace the `<HTTP_PORT>`, `<SERVER_URL>`, `<SERVER_PORT>`, `<MAX_INSTANCES>`, `<TITLE>`, and `<API_KEY>` placeholders with the appropriate values.
@@ -27,8 +28,9 @@ Replace the `<HTTP_PORT>`, `<SERVER_URL>`, `<SERVER_PORT>`, `<MAX_INSTANCES>`, `
 This command will:
 - Start the Docker container in detached mode (`-d` flag).
 - Set the required environment variables.
-- Mount the host folder with the game at `/GiganticHost` to the Docker volume `/volume/gigantic`.
-- Assign the name `gig-files-checker` to the Docker container.
+- Mount the host folder with the game at `/path/to/game/on/host/machine` to the Docker container's `/GiganticHost`.
+- Mount the Docker volume `/volume/gigantic` to the Docker container's `/volume/gigantic`.
+- Assign the name `gig-server` to the Docker container.
 
 6. Access the game server:
 The game server will be accessible at the specified `SERVER_URL` and `SERVER_PORT` in the environment variables.
