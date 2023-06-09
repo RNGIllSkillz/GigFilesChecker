@@ -27,17 +27,15 @@ class Program
         string sourceDirectory = directories.Item1;
         string destinationDirectory = directories.Item2;
 
-        //string sourceDirectory = @"D:\test";
-        //string destinationDirectory = @"D:\testIn";
         CheckAndCreateDirectory(destinationDirectory);
 
         Console.WriteLine("Checking for files presence");
         DirectoryComparer.CopyMissingFiles(sourceDirectory, destinationDirectory); 
         Console.WriteLine();
 
-        //Console.WriteLine("Checking files integrity");
-        //HashChecker.CheckAndCopyFiles(sourceDirectory, destinationDirectory);
-        //Console.WriteLine();
+        Console.WriteLine("Checking files integrity");
+        HashChecker.CheckAndCopyFiles(sourceDirectory, destinationDirectory);
+        Console.WriteLine();
     }
     private static Tuple<string, string>? ReadDirectoriesFromFile(string filePath)
     {
