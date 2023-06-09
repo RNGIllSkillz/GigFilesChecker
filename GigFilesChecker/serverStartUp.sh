@@ -9,5 +9,6 @@ chmod +x GigFilesChecker
 ./GigFilesChecker
 
 # Start SkillzBot
+
 chmod +x /volume/SkillzBot/SkillzBot
 xvfb-run /volume/SkillzBot/SkillzBot
