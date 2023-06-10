@@ -1,43 +1,36 @@
 ﻿using GigFilesChecker.DirectoryComparerNs;
 using GigFilesChecker.HashCheckerNs;
 using System;
+using System.Diagnostics;
 using System.IO;
+using System.Threading;
 
 class Program
 {
-    private const string configFileName = "directories.txt";
+    private static ManualResetEventSlim _resetEvent = new ManualResetEventSlim(false);
     static void Main()
-    {
-        string? programDirectory = AppDomain.CurrentDomain.BaseDirectory;
-        if (programDirectory == null)
-        {
-            Console.WriteLine("Error! programDirectory cannot be null");
-            return;
-        }
-        string configFilePath = Path.Combine(programDirectory, configFileName);
+    {        
+        //Getting Environment variables
+        string sourceDirectory = Environment.GetEnvironmentVariable("ENV_PATH_TO_HOST");
+        string destinationDirectory = Environment.GetEnvironmentVariable("ENV_PATH_TO_VOL");
+        string MainApp = Environment.GetEnvironmentVariable("ENV_APP_EXE_NAME"); 
 
-        Console.WriteLine($"Reading conf file: {configFilePath}");
-        var directories = ReadDirectoriesFromFile(configFilePath);
-        Console.WriteLine();
-        if (directories == null)
-        {
-            Console.WriteLine("Directory configuration file not found. Please create a file named 'directories.txt' and add the source and destination directories.");
-            return;
-        }
-        string sourceDirectory = directories.Item1;
-        string destinationDirectory = directories.Item2;
-
-        CheckAndCreateDirectory(destinationDirectory);
-
+        //Copy files from host to Docker Volume
         Console.WriteLine("Checking for files presence");
         DirectoryComparer.CopyMissingFiles(sourceDirectory, destinationDirectory); 
         Console.WriteLine();
 
+        //Ckeck hashes and reaplace files if needed
         Console.WriteLine("Checking files integrity");
         HashChecker.CheckAndCopyFiles(sourceDirectory, destinationDirectory);
         Console.WriteLine();
+
+        //starting dotnetapp
+        string AppPath = Path.Combine(destinationDirectory, MainApp);
+        Process.Start(AppPath);
+        _resetEvent.Wait();
     }
-    private static Tuple<string, string>? ReadDirectoriesFromFile(string filePath)
+    private static Tuple<string, string> ReadDirectoriesFromFile(string filePath)
     {
         if (File.Exists(filePath))
         {
