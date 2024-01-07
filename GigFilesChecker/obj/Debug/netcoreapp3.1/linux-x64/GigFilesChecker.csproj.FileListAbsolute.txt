@@ -200,3 +200,4 @@ Z:\prj\GitHub\GigFilesChecker\GigFilesChecker\obj\Debug\netcoreapp3.1\linux-x64\
 Z:\prj\GitHub\GigFilesChecker\GigFilesChecker\obj\Debug\netcoreapp3.1\linux-x64\GigFilesChecker.pdb
 Z:\prj\GitHub\GigFilesChecker\GigFilesChecker\obj\Debug\netcoreapp3.1\linux-x64\GigFilesChecker.genruntimeconfig.cache
 Z:\prj\GitHub\GigFilesChecker\GigFilesChecker\bin\Debug\netcoreapp3.1\linux-x64\Dockerfile
+Z:\prj\GitHub\GigFilesChecker\GigFilesChecker\bin\Debug\netcoreapp3.1\linux-x64\Newtonsoft.Json.dll
